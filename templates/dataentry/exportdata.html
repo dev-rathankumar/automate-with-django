@@ -1,23 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automate The Boring Stuff With Django</title>
+{% extends 'base.html' %}
 
-        <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-</head>
-<body>
-    <div class="container">
+{% block content %}
+    <div class="container mt-5 alert-success shadow" style="max-width: 600px;padding: 50px; border-radius: 10px;">
         <h3 class="text-center">Export Data From Database Tables</h3>
         <form action="{% url 'export_data' %}" method="POST" style="max-width: 600px;margin:auto;padding-top: 50px;">
             {% csrf_token %}
@@ -32,11 +16,12 @@
                 </select>
             </div>
 
-            <input type="submit" value="Export Data" class="btn btn-primary">
+            <div class="form-group">
+                <input type="submit" value="Export Data" class="btn btn-success">
+            </div>
 
             {% include 'alerts.html' %}
 
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

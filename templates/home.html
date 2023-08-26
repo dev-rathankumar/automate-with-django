@@ -1,14 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automate The Boring Stuff With Django</title>
-</head>
-<body>
-    <h3>Homepage</h3>
-    <br>
-    <a href="{% url 'import_data' %}">Import Data</a>
-    <a href="{% url 'export_data' %}">Export Data</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container" style="padding: 50px;">
+    <h2 class="text-center">Automate The Boring Stuff With Django</h2>
+    <div class="row pt-5">
+        <!-- Import data -->
+        <div class="col-md-4">
+            <a href="{% url 'import_data' %}" class="text-decoration-none text-dark">
+                <div class="card alert-primary shadow">
+                    <div class="card-header">
+                    <h4>Import Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Imports data from CSV file to any table.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Export Data -->
+        <div class="col-md-4">
+            <a href="{% url 'export_data' %}" class="text-decoration-none text-dark">
+                <div class="card alert-success shadow">
+                    <div class="card-header">
+                    <h4>Export Data</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Exports data from a specific table to a CSV file.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Bulk Emails -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-danger shadow">
+                    <div class="card-header">
+                    <h4>Bulk Emails</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Sends bulk emails to users</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <!-- Email Tracking -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-warning shadow">
+                    <div class="card-header">
+                    <h4>Email Tracking</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Tracks emails and shows open and click rate</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Word to PDF -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-info shadow">
+                    <div class="card-header">
+                    <h4>Word to PDF</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Converts word document to PDF</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- JPG to PDF -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-secondary shadow">
+                    <div class="card-header">
+                    <h4>JPG to PDF</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Converts JPG image to PDF</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row pt-5">
+        <!-- JPG to WebP -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-success shadow">
+                    <div class="card-header">
+                    <h4>JPG to WebP</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Converts JPG and PNG images to PDF</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Compress Images -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-danger shadow">
+                    <div class="card-header">
+                    <h4>Compress Images</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Compresses Image files and reduces the size</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Web Scraping -->
+        <div class="col-md-4">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card alert-warning shadow">
+                    <div class="card-header">
+                    <h4>Web Scraping</h4>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">Scrapes websites for useful information</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
