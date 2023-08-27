@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="container" style="padding: 50px;">
+    {% if user.is_authenticated %}
     <h2 class="text-center">Automate The Boring Stuff With Django</h2>
     <div class="row pt-5">
         <!-- Import data -->
@@ -99,7 +100,7 @@
                     <h4>JPG to WebP</h4>
                     </div>
                     <div class="card-body">
-                    <p class="card-text">Converts JPG and PNG images to PDF</p>
+                    <p class="card-text">Converts JPG and PNG images to WebP</p>
                     </div>
                 </div>
             </a>
@@ -133,5 +134,22 @@
             </a>
         </div>
     </div>
+    {% else %}
+
+    <div class="home-info">
+        <h2 class="text-center">Automate the Boring Stuff with Django</h2>
+        <p class="lead text-center text-muted">
+            "Automate the Boring Stuff with Django" is a project-based course to build various tools using the Django framework to automate routine tasks, ranging from data processing to scheduling, and more. 
+            By leveraging Django's capabilities, users can streamline their workflows, saving time and enhancing productivity.
+        </p>
+
+        <div style="display: flex; justify-content: center;">
+            <a href="{% url 'login' %}" class="btn btn-primary">LOGIN</a>
+            &nbsp;<a href="{% url 'register' %}" class="btn btn-success">REGISTER</a>
+        </div>
+    </div>
+
+    {% endif %}
+
 </div>
 {% endblock %}
