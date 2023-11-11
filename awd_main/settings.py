@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool) # True or False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'emails',
+    'ckeditor',
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -145,13 +147,27 @@ MESSAGE_TAGS = {
 CELERY_BROKER_URL = 'redis://localhost:6379'
 
 # Email Configuration
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS=True
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL = 'Automate with Django <developer.rathan@gmail.com>'
 DEFAULT_TO_EMAIL = 'rathan.kumar492@gmail.com'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 200,
+    },
+}
+
+EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
+ANYMAIL = {
+    "SENDINBLUE_API_KEY": config("SENDINBLUE_API_KEY"),
+}
+
+CSRF_TRUSTED_ORIGINS = ['https://faff-114-79-178-247.ngrok-free.app']
+BASE_URL = 'https://faff-114-79-178-247.ngrok-free.app'
